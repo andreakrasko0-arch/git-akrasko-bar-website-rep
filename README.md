@@ -14,5 +14,4 @@ It showcases basic website structure: header, menu, about section, contact info,
 ## How to View
 Open the `index.html` file in your web browser to see the website.
 
-## Screenshot
-![Bar Website Screenshot](images/screenshot.png)
+
