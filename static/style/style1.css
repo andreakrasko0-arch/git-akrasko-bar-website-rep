@@ -1,0 +1,50 @@
+/* Reset podstawowy */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #eee;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f1f1f;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #a05eff;
+    letter-spacing: 2px;
+    user-select: none;
+}
+
+nav .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav .nav-links a {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 12px;
+}

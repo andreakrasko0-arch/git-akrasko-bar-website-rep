@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WARSHISHAWA</title>
+    <!-- Łączymy plik CSS ze stylem -->
+    <link rel="stylesheet" href="static/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="static/images/log2.png" type="image/png">
+
+
+
+
+</head>
+
+<body>
+    <!-- nawigacja -->
+    <nav>
+
+        <div class="logo" data-translate="logo">Shisha Bar</div>
+        <div class="nav-links">
+            <a href="menu.html" data-translate="menu_title">Menu</a>
+
+            <!-- Przełącznik języka -->
+            <button id="lang-toggle">PL</button>
+
+        </div>
+
+
+    </nav>
+
+
+    <!-- Sekcja powitalna (hero) z tłem i nazwą baru -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 data-translate="logo">WARSHISHAWA</h1>
+            <p data-translate="subtitle">Lounge Bar</p>
+
+        </div>
+    </header>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 data-translate="about_title">O nas</h2>
+            <p data-translate="about_text">
+                Hejo🖐 Potrzebujesz relaksu, odprężenia czy miejsca na przytulne spotkanie i
+                miły wieczór? Właśnie to tworzymy dla Ciebie!💁‍♂️ Atmosfera lounge🌓, kameralne wnętrze, spokojna
+                muzyka, wyraziste koktajle🧊 i nasza wyjątkowa szisza🌪 Nowe miejsce w samym centrum Warszawy💜
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Sekcja z godzinami otwarcia -->
+    <section class="hours">
+        <h2 data-translate="hours_title">Godziny Otwarcia</h2>
+
+        <ul>
+            <li data-translate="hours_weekdays">Pon–Czw: 16:00 – 01:00</li>
+
+            <li data-translate="hours_weekend">Sob–Ndz: 16:00 – 03:00</li>
+
+        </ul>
+    </section>
+
+    <!-- Sekcja z mapką lokalizacji (osadzona z Google Maps) -->
+    <section class="location">
+        <h2 data-translate="location_title">Lokalizacja</h2>
+
+        <div class="map-container">
+            <!-- Możesz podmienić link w src, jeśli masz konkretny adres baru -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.300550183387!2d20.99997697654873!3d52.23792437198863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecd39f92ebbdf%3A0x3f56fecd9d11750b!2sWARSHISHAWA!5e0!3m2!1sen!2spl!4v1748367170252!5m2!1sen!2spl"
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <!-- iframe umożliwia osadzenie innej strony wewnątrz Twojej strony  -->
+        </div>
+    </section>
+
+    <!-- Sekcja kontaktowa z formularzem -->
+    <section class="contact">
+        <h2 data-translate="reservation_title">Rezerwacja</h2>
+        <a href="tel:+48 576 789 468" class="phone-link">
+            <i class="fas fa-phone-alt"></i> +48 576 789 468
+        </a> <br>
+
+
+
+        <a href="https://www.instagram.com/warshishawa_lounge" class="instagram-link" target="_blank"
+            rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+    </section>
+
+
+
+
+    <script>
+        const translations = {
+            pl: {
+                logo: "WARSHISHAWA",
+                subtitle: "Lounge Bar",
+                home: "Strona Główna",
+                menu_title: "Menu",
+                hours_title: "Godziny Otwarcia",
+                hours_weekdays: "Pon–Czw: 16:00 – 01:00",
+                hours_weekend: "Sob–Ndz: 16:00 – 03:00",
+                location_title: "Lokalizacja",
+                reservation_title: "Rezerwacja",
+                about_title: "O nas",
+                about_text: "Hejo🖐 Potrzebujesz relaksu, odprężenia czy miejsca na przytulne spotkanie i miły wieczór? Właśnie to tworzymy dla Ciebie!💁‍♂️ Atmosfera lounge🌓, kameralne wnętrze, spokojna muzyka, wyraziste koktajle🧊 i nasza wyjątkowa szisza🌪 Nowe miejsce w samym centrum Warszawy💜"
+            },
+            en: {
+                logo: "WARSHISHAWA",
+                subtitle: "Lounge Bar",
+                home: "Home",
+                menu_title: "Menu",
+                hours_title: "Opening Hours",
+                hours_weekdays: "Mon–Thu: 4:00 PM – 1:00 AM",
+                hours_weekend: "Sat–Sun: 4:00 PM – 3:00 AM",
+                location_title: "Location",
+                reservation_title: "Reservation",
+                about_title: "About Us",
+                about_text: "Hey🖐 Need some relaxation, a cozy place for a nice evening? This is exactly what we create for you!💁‍♂️ Lounge atmosphere🌓, intimate interiors, calm music, bold cocktails🧊 and our unique shisha🌪 A new place in the heart of Warsaw💜"
+            }
+        };
+
+
+        const toggleBtn = document.getElementById("lang-toggle");
+        let currentLang = localStorage.getItem("lang") || (navigator.language.startsWith("pl") ? "pl" : "en");
+
+        function updateLanguage(lang) {
+            const elements = document.querySelectorAll("[data-translate]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-translate");
+                el.textContent = translations[lang][key];
+            });
+            localStorage.setItem("lang", lang);
+            toggleBtn.textContent = lang.toUpperCase(); // pokazuje aktualny język na przycisku
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            currentLang = currentLang === "pl" ? "en" : "pl";
+            updateLanguage(currentLang);
+        });
+
+        // Inicjalizacja języka na starcie
+        updateLanguage(currentLang);
+    </script>
+
+
+
+
+</body>
+
+</html>
